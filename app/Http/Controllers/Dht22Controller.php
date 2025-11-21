@@ -31,7 +31,7 @@ class Dht22Controller extends Controller
 
     public function updateData($tmp, $hmd)
     {
-        $sensor = new SensorData();
+        $sensor = new Dht22();
         $sensor->temperature = $tmp;
         $sensor->humidity = $hmd;
         $sensor->save();
@@ -57,7 +57,7 @@ class Dht22Controller extends Controller
 
     public function getLatest()
 {
-    $data = SensorData::latest()->first();
+    $data = Dht22::latest()->first();
 
     if (!$data) {
         return response()->json(['error' => 'No data found'], 404);

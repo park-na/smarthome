@@ -9,7 +9,7 @@ class SmartHome extends Model
     protected $table = 'smart_homes';
 
     protected $fillable = [
-        'object',
+        'name',
         'status',
     ];
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('smart_homes', function (Blueprint $table) {
             $table->id();
-            $table->string('object');
+            $table->string('name');
             $table->boolean('status')->default(0);
             $table->timestamps();
         });

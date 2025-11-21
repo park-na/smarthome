@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         $object = ['tv', 'lampu', 'ac', 'pintu', 'kulkas', 'oven'];
         foreach ($object as $item) {
             SmartHome::create([
-                'object' => $item,
+                'name' => $item,
                 'status' => 0
             ]);
         }

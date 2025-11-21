@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Smarthome;
+use App\Models\SmartHome;
 
-class SmarthomeController extends Controller
+class SmartHomeController extends Controller
 {
     public function index() {
-        $data = Smarthome::all();
+        $data = SmartHome::all();
         return view('smart-home', compact('data'));
     }
 
@@ -32,6 +32,20 @@ class SmarthomeController extends Controller
         ]);
 
         return response()->json(['success' => true]);
+    }
+
+    public function getLampu() {
+
+        $smartHomes = SmartHome::all();
+
+        if($smartHomes->isEmpty()) {
+            return response()->json([
+                'nama' => $smartHomes->name,
+                'status' => $smartHomes->status,
+                'message' => 'No Smart Home data found',
+            ]);
+        } 
+        return response()->json($smartHomes);
     }
 
 }
