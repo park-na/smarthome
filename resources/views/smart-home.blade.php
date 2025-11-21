@@ -94,13 +94,26 @@
       pointer-events: none;
     }
 
-   .devices-grid {
+  .devices-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 🔥 3 kolom tetap */
+  grid-template-columns: repeat(3, 1fr); /* 3 kolom di layar besar */
   gap: 2.5rem;
   max-width: 1600px;
   margin: 0 auto;
 }
+
+@media (max-width: 1024px) {
+  .devices-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .devices-grid {
+    grid-template-columns: 1fr; /* 1 kolom HP */
+  }
+}
+
 
     /* Premium 3D device cards with advanced animations */
     .device-card {
